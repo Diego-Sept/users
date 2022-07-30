@@ -1,0 +1,130 @@
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+
+// Define a mixin that accepts a theme and outputs the theme-specific styles.
+@mixin form-mixins($theme) {
+    // Extract the palettes you need from the theme definition.
+    $primary-map: map-get($theme, primary);
+    $accent-map: map-get($theme, accent);
+    $warn-map: map-get($theme, warn);
+    $grey-map: map-get($custom-colors, cc-grey);
+
+    $primary: mat-color($primary-map);
+    $primary-lighter: mat-color($primary-map, lighter);
+    $primary-darker: mat-color($primary-map, darker);
+    $accent: mat-color($accent-map);
+    $accent-lighter: mat-color($accent-map, lighter);
+    $accent-darker: mat-color($accent-map, darker);
+    $warn: mat-color($warn-map);
+    $warn-lighter: mat-color($warn-map, lighter);
+    $warn-darker: mat-color($warn-map, darker);
+    // Custom colors
+    $grey: mat-color($grey-map);
+    $grey-darker: mat-color($grey-map, darker);
+    $grey-lighter: mat-color($grey-map, lighter);
+
+    $error-map: map-get($error, error);
+    $error: mat-color($error-map);
+    $error-darker: mat-color($error-map, darker);
+    $error-lighter: mat-color($error-map, lighter);
+
+    .mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline {
+        border: 0.5px solid $primary-darker !important;
+        border-radius: 4px !important;
+        opacity: 1;
+        border-style: none !important;
+    }
+
+    //input outline color
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        border: 0.5px solid $grey !important;
+        border-radius: 4px !important;
+        opacity: 0.2;
+        border-style: none !important;
+    }
+
+    //mat-input focused color
+    .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+        border: 0.5px solid $primary !important;
+        border-radius: 4px !important;
+        border-style: none !important;
+    }
+
+    // mat-input error outline color
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+        border: 0.5px solid $error-darker !important;
+        border-radius: 4px !important;
+        border-style: none !important;
+    }
+
+    // mat-label normal state style
+    .mat-form-field-label {
+        color: $primary-darker !important;
+        margin-top: -2px !important;
+    }
+
+    // mat-label focused style
+    .mat-form-field.mat-focused .mat-form-field-label {
+        color: $primary !important;
+        margin-bottom: 5px;
+    }
+
+    // mat-label error style
+    .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+        color: $error-darker !important;
+    }
+
+    .mat-form-field-disabled .mat-form-field-outline{
+        border: 0.5px solid $grey-lighter !important;
+        border-radius: 4px !important;
+        opacity: 0.5;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-label{
+        color: $grey !important;
+    }
+
+    .mat-form-field.mat-form-field-appearance-outline.mat-form-field-wrapper.mat-form-field-flex.mat-form-field-infix  { padding: 0.4em 0px !important }
+    .mat-form-field.mat-form-field-appearance-outline.mat-form-field-wrapper.mat-form-field-flex.mat-form-field-infix.mat-form-field-label-wrapper { top: -1.5em !important }
+
+    .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+        transform: translateY(-1.1em) scale(.75) !important;
+        width: 133.33333% !important;
+    }
+
+    .inputSuccessBorderGreen .mat-form-field-appearance-outline .mat-form-field-outline {
+        border: 0.5px solid green !important;
+    }
+
+    .msgInputSuccess {
+        padding: 0 1em;
+        color: green;
+        margin-top: -1.7em;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-prefix {
+        top: 0.125rem !important;
+        padding: 0.1875rem !important;
+    }
+
+    .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+        display: inline-block !important;
+    }
+
+    .mat-form-field-infix{
+        border: 0px !important;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-infix{
+        padding: 0.9em 0 0.6em 0;
+    }
+
+    .mat-select-arrow{
+        margin-top: 8px;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-flex{
+        align-items: center !important;
+    }
+
+}

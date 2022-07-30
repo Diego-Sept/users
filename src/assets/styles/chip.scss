@@ -1,0 +1,57 @@
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+
+// Define a mixin that accepts a theme and outputs the theme-specific styles.
+@mixin chip-mixins($theme) {
+    // Extract the palettes you need from the theme definition.
+   $primary-map: map-get($theme, primary);
+   $accent-map: map-get($theme, accent);
+   $warn-map: map-get($theme, warn);
+   $grey-map: map-get($custom-colors, cc-grey);
+
+   $primary: mat-color($primary-map);
+   $primary-lighter: mat-color($primary-map, lighter);
+   $primary-darker: mat-color($primary-map, darker);
+   $accent: mat-color($accent-map);
+   $accent-lighter: mat-color($accent-map, lighter);
+   $accent-darker: mat-color($accent-map, darker);
+   $warn: mat-color($warn-map);
+   $warn-lighter: mat-color($warn-map, lighter);
+   $warn-darker: mat-color($warn-map, darker);
+   // Custom colors
+   $grey: mat-color($grey-map);
+   $grey-darker: mat-color($grey-map, darker);
+   $grey-lighter: mat-color($grey-map, lighter);
+
+   .mat-chip {
+      border-radius: 4px !important;
+      min-width: 160px;
+      justify-content: center;
+   }
+
+   .mat-chip span {
+      letter-spacing: 1.25px !important;
+      font-weight: 600 !important;
+   }
+
+   .mat-chip.chips-select{
+      border-radius: 9px !important;
+      min-width: unset;
+   }
+
+   .mat-standard-chip.chips-select{
+      min-height: 26px !important;
+   }
+
+   .mat-chip-list.operator{
+      margin: 7px !important;
+   }
+
+   .mat-chip.opacity-hover{
+      opacity: 0.5 !important;
+   }
+
+   .mat-standard-chip:focus::after{
+      opacity: 0 !important;
+   }
+}

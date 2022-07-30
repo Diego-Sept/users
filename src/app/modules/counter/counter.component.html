@@ -1,0 +1,15 @@
+<form class="example-form">
+    <div fxLayout="row" fxFlex="10" fxLayoutAlign="space-between center" style="padding:1%">
+        <button type='button' mat-raised-button color="primary" (click)="sustract()" class="radius">
+          <mat-icon>remove</mat-icon>
+        </button>
+      
+        <button type='button' mat-raised-button color="accent" (click)="add()" class="radius">
+          <mat-icon>add</mat-icon>
+        </button>
+      
+        <mat-label>{{ this.getCounter() }}</mat-label>
+    </div>
+</form>
+  
+  

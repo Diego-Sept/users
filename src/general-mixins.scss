@@ -1,0 +1,288 @@
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+
+// Define a mixin that accepts a theme and outputs the theme-specific styles.
+@mixin general-mixins($theme) {
+   // Extract the palettes you need from the theme definition.
+   $primary-map: map-get($theme, primary);
+   $accent-map: map-get($theme, accent);
+   $warn-map: map-get($theme, warn);
+   $grey-map: map-get($custom-colors, cc-grey);
+   $error-map: map-get($error, error);
+
+   $primary: mat-color($primary-map);
+   $primary-lighter: mat-color($primary-map, lighter);
+   $primary-darker: mat-color($primary-map, darker);
+   $accent: mat-color($accent-map);
+   $accent-lighter: mat-color($accent-map, lighter);
+   $accent-darker: mat-color($accent-map, darker);
+   $warn: mat-color($warn-map);
+   $warn-lighter: mat-color($warn-map, lighter);
+   $warn-darker: mat-color($warn-map, darker);
+   // Custom colors
+   $grey: mat-color($grey-map);
+   $grey-darker: mat-color($grey-map, darker);
+   $grey-lighter: mat-color($grey-map, lighter);
+
+   $error: mat-color($error-map);
+   $error-darker: mat-color($error-map, darker);
+   $error-lighter: mat-color($error-map, lighter);
+
+   // Text
+   .text-primary {
+      color: $primary !important;
+   }
+   .text-primary-darker {
+      color: $primary-darker !important;
+   }
+   .text-primary-lighter {
+      color: $primary-lighter !important;
+   }
+   .text-accent {
+      color: $accent !important;
+   }
+   .text-accent-lighter {
+      color: $accent-lighter !important;
+   }
+   .text-accent-darker {
+      color: $accent-darker !important;
+   }
+   .text-warn {
+      color: $warn !important;
+   }
+   .text-warn-lighter {
+      color: $warn-lighter !important;
+   }
+   .text-warn-darker {
+      color: $warn-darker !important;
+   }
+   .text-secondary {
+      color: $grey !important;
+   }
+   .text-secondary-darker {
+      color: $grey-darker !important;
+   }
+   .text-secondary-lighter {
+      color: $grey-lighter !important;
+   }
+   
+   .bg-primary {
+      background-color: $primary !important;
+   }
+   
+   .bg-primary-lighter {
+      background-color: $primary-lighter !important;
+   }
+
+   .bg-primary-darker {
+      background-color: $primary-darker !important;
+   }
+   .bg-accent {
+      background-color: $accent !important;
+   }
+   .bg-accent-lighter {
+      background-color: $accent-lighter !important;
+   }
+   .bg-accent-darker {
+      background-color: $accent-darker !important;
+   }
+   .bg-warn {
+      background-color: $warn !important;
+   }
+   .bg-warn-lighter {
+      background-color: $warn-lighter !important;
+   }
+   .bg-warn-darker {
+      background-color: $warn-darker !important;
+   }
+   .bg-secondary {
+      background-color: $grey !important;
+   }
+   .bg-secondary-darker {
+      background-color: $grey-darker !important;
+   }
+   .bg-secondary-lighter {
+      background-color: $grey-lighter !important;
+   }
+
+   // MAT-CARD
+   .mat-card .mat-card-header .mat-card-title {
+      color: $accent-darker;
+   }
+
+   .mat-card {
+      box-shadow: 1px 1px 10px rgba(105, 105, 105, 0.2) !important;
+   }
+
+   .mat-card-title{
+      @extend .text-primary-darker;
+   }
+   
+   .item-menu span {
+      color: $grey-darker;
+   }
+
+   .mat-snack-bar-container-error {
+      background-color: $warn-darker !important;
+      color: $grey-lighter !important;
+   }
+
+   .mat-snack-bar-container-info {
+      background-color: $primary-lighter !important;
+      color: $primary-darker !important;
+   }   
+
+   .custom-frame {
+      & .mat-checkbox-background,
+      .mat-checkbox-frame {
+         border-radius: 70% !important;
+         border-color: $primary;
+      }
+   }
+
+   .flecha-lado-izquierdo-arriba:before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: -10px;
+      width: 0;
+      height: 0;
+      border-width: 5px;
+      border-style: solid;
+      border-color:  transparent $grey-lighter transparent transparent;
+   }   
+
+   // SIDE NAV AVATAR
+   .avatar-content {
+      @extend .bg-primary;
+   }
+
+   // PRIMARY 100
+   .bg-primary-100 {
+      background-color: mat-color($primary-map, 100) !important;
+   }
+
+   .bg-primary-50 {
+      background-color: mat-color($primary-map, 50) !important;
+   }
+
+   .text-primary-lighter-100 {
+      color: mat-color($primary-map, 100) !important;
+   }
+
+   .text-primary-bolder {
+      color: $primary !important;
+      font-weight: bolder !important;
+   }
+
+   .text-primary-darker-bolder {
+      color: $primary-darker !important;
+      font-weight: bolder !important;
+   }   
+
+   // ACCENT 100
+   .bg-accent-100 {
+      background-color: mat-color($accent-map, 100) !important;
+   }
+
+   .text-primary-darker-title{
+      @extend .text-primary-darker;
+      font-weight: 900;
+   }
+
+   .text-primary-darker-h3{
+      @extend .mat-h3;
+      @extend .text-primary-darker;
+      font-weight: 600;
+   }
+
+   .text-primary-darker-h4{
+      @extend .mat-h4;
+      @extend .text-primary-darker;
+      font-weight: 800;
+   }
+
+   .text-primary-darker-h5{
+      @extend .mat-h5;
+      @extend .text-primary-darker;
+      font-weight: 800;
+   }
+
+
+   .mat-divider {
+      border-top-color: mat-color($primary-map, 50) !important;
+   }
+
+   .text-primary-h2{
+      @extend .mat-h2;
+      @extend .text-primary;
+      font-weight: 900;
+   }
+
+   .text-white {
+      color: white !important;
+   }
+
+   // TYPOGRAPHY KIT UI
+   .headline-1 {
+      font-size: 28px;
+      font-weight: bold;
+   }
+
+   .headline-2 {
+      font-size: 18px;
+      font-weight: bold;
+   }
+
+   .subtitle-2{
+      font-size: 14px;
+      font-weight: 500;
+   }
+
+   .subtitle-3 {
+      font-size: 12px;
+      font-weight: 600; /* semi-bold */
+   }
+
+   .subtitle-4{
+      font-size: 12px;
+      font-weight: 400;
+   }
+
+   .body-3 {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 20px;
+      letter-spacing: 0.25px;
+      color: rgba(0, 0, 0, 0.87);
+   }
+
+   // NUMBERS
+   .big-number {
+      font-weight: 800 !important;
+   }
+
+   .medium-number {
+      font-size: 20px;
+      font-weight: bolder;
+   }   
+
+   .mat-dialog-container{
+      padding: 0px !important;
+   }
+
+   .spinner-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.15);
+      z-index: 999 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+}
+ 

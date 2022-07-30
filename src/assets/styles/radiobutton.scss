@@ -1,0 +1,75 @@
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+
+// Define a mixin that accepts a theme and outputs the theme-specific styles.
+@mixin radiobutton-mixins($theme) {
+    // Extract the palettes you need from the theme definition.
+   $primary-map: map-get($theme, primary);
+   $accent-map: map-get($theme, accent);
+   $warn-map: map-get($theme, warn);
+   $grey-map: map-get($custom-colors, cc-grey);
+
+   $primary: mat-color($primary-map);
+   $primary-lighter: mat-color($primary-map, lighter);
+   $primary-darker: mat-color($primary-map, darker);
+   $accent: mat-color($accent-map);
+   $accent-lighter: mat-color($accent-map, lighter);
+   $accent-darker: mat-color($accent-map, darker);
+   $warn: mat-color($warn-map);
+   $warn-lighter: mat-color($warn-map, lighter);
+   $warn-darker: mat-color($warn-map, darker);
+   // Custom colors
+   $grey: mat-color($grey-map);
+   $grey-darker: mat-color($grey-map, darker);
+   $grey-lighter: mat-color($grey-map, lighter);
+
+   //Radiobuttons
+   .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color: $primary-darker
+ }
+    
+ .mat-radio-button.mat-accent .mat-radio-inner-circle{
+    color:$primary !important;
+    background-color:$primary-darker !important;
+ }
+    
+ .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color: $primary-lighter !important;
+ }
+
+ .mat-radio-button:hover{
+    color: $primary !important;
+    .mat-radio-outer-circle {
+       border-color: $primary !important;//what ever color you want
+    }
+ }
+
+ .mat-radio-disabled {
+    &.mat-radio-checked, &.mat-radio-indeterminate {
+       .mat-radio-inner-circle {
+          background-color: $grey !important;
+       }
+       .mat-radio-outer-circle {
+         //  border: 2px solid $grey !important;
+          border: 2px solid #e5e5e5 !important;
+       }
+    }
+
+    &:not(.mat-radio-checked) {
+       .mat-radio-outer-circle {
+         //  border: 2px solid $grey !important;
+          border: 2px solid #e5e5e5 !important;
+       }
+    }
+ }
+
+ .mat-radio-button:not(.mat-radio-disabled) {
+ &.mat-primary .mat-radio-ripple .mat-ripple-element {
+    background-color: $primary !important;
+ }
+
+ &.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color: $primary !important;
+ }
+ }
+}

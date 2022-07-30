@@ -1,0 +1,68 @@
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+
+// Define a mixin that accepts a theme and outputs the theme-specific styles.
+@mixin checkbox-mixins($theme) {
+    // Extract the palettes you need from the theme definition.
+   $primary-map: map-get($theme, primary);
+   $accent-map: map-get($theme, accent);
+   $warn-map: map-get($theme, warn);
+   $grey-map: map-get($custom-colors, cc-grey);
+
+   $primary: mat-color($primary-map);
+   $primary-lighter: mat-color($primary-map, lighter);
+   $primary-darker: mat-color($primary-map, darker);
+   $accent: mat-color($accent-map);
+   $accent-lighter: mat-color($accent-map, lighter);
+   $accent-darker: mat-color($accent-map, darker);
+   $warn: mat-color($warn-map);
+   $warn-lighter: mat-color($warn-map, lighter);
+   $warn-darker: mat-color($warn-map, darker);
+   // Custom colors
+   $grey: mat-color($grey-map);
+   $grey-darker: mat-color($grey-map, darker);
+   $grey-lighter: mat-color($grey-map, lighter);
+
+    //Checkbox
+    mat-checkbox:hover{
+    color: $primary !important;
+    .mat-checkbox-frame {
+        border-color: $primary !important;//what ever color you want
+    }
+    }
+
+    // Background border
+    .mat-checkbox .mat-checkbox-frame {
+    border-color: $primary-darker !important;
+    border-radius: 2px !important;
+    }
+
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: $primary-darker !important;
+    }
+
+    .mat-checkbox-disabled {
+    &.mat-checkbox-checked, &.mat-checkbox-indeterminate {
+        .mat-checkbox-background {
+            background-color: $grey !important;
+        }
+    }
+
+    &:not(.mat-checkbox-checked) {
+        .mat-checkbox-frame {
+            border: 2px solid $grey !important;
+        }
+    }
+    }
+
+    .mat-checkbox:not(.mat-checkbox-disabled) {
+    &.mat-primary .mat-checkbox-ripple .mat-ripple-element {
+        background-color: $primary !important;
+    }
+
+    &.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+        background-color: $primary !important;
+    }
+    }
+
+}

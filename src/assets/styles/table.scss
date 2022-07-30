@@ -1,0 +1,81 @@
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+
+// Define a mixin that accepts a theme and outputs the theme-specific styles.
+@mixin table-mixins($theme) {
+    // Extract the palettes you need from the theme definition.
+    $primary-map: map-get($theme, primary);
+    $accent-map: map-get($theme, accent);
+    $warn-map: map-get($theme, warn);
+    $grey-map: map-get($custom-colors, cc-grey);
+
+    $primary: mat-color($primary-map);
+    $primary-lighter: mat-color($primary-map, lighter);
+    $primary-darker: mat-color($primary-map, darker);
+    $accent: mat-color($accent-map);
+    $accent-lighter: mat-color($accent-map, lighter);
+    $accent-darker: mat-color($accent-map, darker);
+    $warn: mat-color($warn-map);
+    $warn-lighter: mat-color($warn-map, lighter);
+    $warn-darker: mat-color($warn-map, darker);
+    // Custom colors
+    $grey: mat-color($grey-map);
+    $grey-darker: mat-color($grey-map, darker);
+    $grey-lighter: mat-color($grey-map, lighter);
+
+  
+    .mat-cell.order-state{
+        padding-right: none !important;
+    }
+
+    .mat-sort-header, .mat-header-cell, .mat-footer-cell {
+        color: $primary-darker !important;
+        letter-spacing: 1.25px;
+        // font-weight: bold !important;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 24px;
+        letter-spacing: 0.15px;
+    }
+
+    .mat-cell {
+        font-size: 10px;
+        line-height: 14px;
+        letter-spacing: 0.25px;
+    }
+
+    .bg-on-hover.mat-row:hover {
+        // background: mat-color($primary-map, 50) !important;
+        background: $grey-lighter;
+    }
+    .bg-on-hover:hover {
+        // background: mat-color($primary-map, 50) !important;
+        background: $grey-lighter;
+    }
+
+    th {
+        @extend .text-secondary-darker;
+        font-weight: 600 !important;
+    }
+
+    td {
+        @extend .text-secondary-darker;
+    }
+
+    .mat-cell {
+        color: $grey-darker;
+    }    
+
+    // span chip within mat-table
+    .mat-chip span {
+        font-size: 10px;
+    }
+
+    .mat-table.case-style{
+        border: 1px solid !important;
+        border-radius: 10px !important;
+        border-color: $grey-lighter !important;
+    }
+
+
+}
